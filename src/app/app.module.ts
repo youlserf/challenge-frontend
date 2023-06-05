@@ -9,9 +9,21 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { EntidadComponent } from './components/entidad/entidad.component';
+import { DocumentComponent } from './components/document/document.component';
+import { ContributorComponent } from './components/contributor/contributor.component';
+import { TipoContribuyenteService } from './services/contribuyente.service';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    SignupComponent,
+    HomeComponent,
+    EntidadComponent,
+    DocumentComponent,
+    ContributorComponent,
+  ],
   imports: [
     RouterModule,
     BrowserModule,
@@ -19,7 +31,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [TipoContribuyenteService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

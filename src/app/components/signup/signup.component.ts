@@ -29,6 +29,12 @@ export class SignupComponent {
 
     this.authService.register(request).subscribe(
       (response) => {
+        localStorage.setItem('accessToken', response.access_token);
+        localStorage.setItem('refreshToken', response.refresh_token);
+
+        console.log(localStorage.getItem('accessToken'));
+        console.log(localStorage.getItem('refreshToken'));
+
         // Handle successful registration, such as showing a success message or redirecting to the login page
         this.router.navigate(['/home']);
       },

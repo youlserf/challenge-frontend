@@ -1,1 +1,33 @@
-<p>contributor works!</p>
+<h1>Tipo Contribuyente</h1>
+
+<!-- Display all tipo contribuyentes -->
+<div>
+    <h2>All Tipo Contribuyentes</h2>
+    <ul>
+        <li *ngFor="let tipoContribuyente of tipoContribuyentes">
+            {{ tipoContribuyente.nombre }}
+            <button (click)="getTipoContribuyenteById(tipoContribuyente.idTipoContribuyente)">Edit</button>
+            <button (click)="deleteTipoContribuyente(tipoContribuyente.idTipoContribuyente)">Delete</button>
+        </li>
+    </ul>
+</div>
+
+<!-- Create a new tipo contribuyente -->
+<div>
+    <h2>Create Tipo Contribuyente</h2>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="newTipoContribuyente.nombre">
+    <label for="estado">Estado:</label>
+    <input type="checkbox" id="estado" [(ngModel)]="newTipoContribuyente.estado">
+    <button (click)="createTipoContribuyente()">Create</button>
+</div>
+
+<!-- Edit an existing tipo contribuyente -->
+<div *ngIf="selectedTipoContribuyente">
+    <h2>Edit Tipo Contribuyente</h2>
+    <label for="edit-nombre">Nombre:</label>
+    <input type="text" id="edit-nombre" [(ngModel)]="selectedTipoContribuyente.nombre">
+    <label for="edit-estado">Estado:</label>
+    <input type="checkbox" id="edit-estado" [(ngModel)]="selectedTipoContribuyente.estado">
+    <button (click)="updateTipoContribuyente(selectedTipoContribuyente.idTipoContribuyente)">Update</button>
+</div>
