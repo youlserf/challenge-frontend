@@ -13,6 +13,8 @@ import { EntidadComponent } from './components/entidad/entidad.component';
 import { DocumentComponent } from './components/document/document.component';
 import { ContributorComponent } from './components/contributor/contributor.component';
 import { TipoContribuyenteService } from './services/contribuyente.service';
+import { ListComponent } from './components/contributor/list/list.component';
+import { FormComponent } from './components/contributor/form/form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { TipoContribuyenteService } from './services/contribuyente.service';
     EntidadComponent,
     DocumentComponent,
     ContributorComponent,
+    ListComponent,
+    FormComponent,
   ],
   imports: [
     RouterModule,

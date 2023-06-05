@@ -1,41 +1,74 @@
-<h1>Tipo Documento</h1>
+<h1 class="display-4 text-center mb-4">Tipo Documento</h1>
 
 <!-- Display all tipo documentos -->
-<div>
-    <h2>All Tipo Documentos</h2>
-    <ul>
-        <li *ngFor="let tipoDocumento of tipoDocumentos">
+<div class="container">
+    <h2 class="mb-3">All Tipo Documentos</h2>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let tipoDocumento of tipoDocumentos">
             {{ tipoDocumento.nombre }}
-            <button (click)="getTipoDocumentoById(tipoDocumento.idTipoDocumento)">Edit</button>
-            <button (click)="deleteTipoDocumento(tipoDocumento.idTipoDocumento)">Delete</button>
+            <button class="btn btn-primary btn-sm ml-2" (click)="getTipoDocumentoById(tipoDocumento.idTipoDocumento)">
+                <i class="fa fa-pencil"></i> Edit
+            </button>
+            <button class="btn btn-danger btn-sm ml-2" (click)="deleteTipoDocumento(tipoDocumento.idTipoDocumento)">
+                <i class="fa fa-trash"></i> Delete
+            </button>
         </li>
     </ul>
 </div>
 
 <!-- Create a new tipo documento -->
-<div>
-    <h2>Create Tipo Documento</h2>
-    <label for="codigo">Código:</label>
-    <input type="text" id="codigo" [(ngModel)]="newTipoDocumento.codigo">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" [(ngModel)]="newTipoDocumento.nombre">
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" [(ngModel)]="newTipoDocumento.descripcion">
-    <label for="estado">Estado:</label>
-    <input type="checkbox" id="estado" [(ngModel)]="newTipoDocumento.estado">
-    <button (click)="createTipoDocumento()">Create</button>
+<div class="container mt-5">
+    <h2 class="mb-3">Create Tipo Documento</h2>
+    <form>
+        <div class="form-group">
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" [(ngModel)]="newTipoDocumento.codigo" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" [(ngModel)]="newTipoDocumento.nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" [(ngModel)]="newTipoDocumento.descripcion" class="form-control">
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label" for="estado">
+                <input type="checkbox" id="estado" [(ngModel)]="newTipoDocumento.estado" class="form-check-input">
+                Estado
+            </label>
+        </div>
+        <button class="btn btn-success" (click)="createTipoDocumento()">
+            <i class="fa fa-plus"></i> Create
+        </button>
+    </form>
 </div>
 
 <!-- Edit an existing tipo documento -->
-<div *ngIf="selectedTipoDocumento">
-    <h2>Edit Tipo Documento</h2>
-    <label for="edit-codigo">Código:</label>
-    <input type="text" id="edit-codigo" [(ngModel)]="selectedTipoDocumento.codigo">
-    <label for="edit-nombre">Nombre:</label>
-    <input type="text" id="edit-nombre" [(ngModel)]="selectedTipoDocumento.nombre">
-    <label for="edit-descripcion">Descripción:</label>
-    <input type="text" id="edit-descripcion" [(ngModel)]="selectedTipoDocumento.descripcion">
-    <label for="edit-estado">Estado:</label>
-    <input type="checkbox" id="edit-estado" [(ngModel)]="selectedTipoDocumento.estado">
-    <button (click)="updateTipoDocumento(selectedTipoDocumento.idTipoDocumento)">Update</button>
+<div class="container mt-5" *ngIf="selectedTipoDocumento">
+    <h2 class="mb-3">Edit Tipo Documento</h2>
+    <form>
+        <div class="form-group">
+            <label for="edit-codigo">Código:</label>
+            <input type="text" id="edit-codigo" [(ngModel)]="selectedTipoDocumento.codigo" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="edit-nombre">Nombre:</label>
+            <input type="text" id="edit-nombre" [(ngModel)]="selectedTipoDocumento.nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="edit-descripcion">Descripción:</label>
+            <input type="text" id="edit-descripcion" [(ngModel)]="selectedTipoDocumento.descripcion"
+                class="form-control">
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label" for="edit-estado">
+                <input type="checkbox" id="edit-estado" [(ngModel)]="selectedTipoDocumento.estado"
+                    class="form-check-input"> Estado
+            </label>
+        </div>
+        <button class="btn btn-info" (click)="updateTipoDocumento(selectedTipoDocumento.idTipoDocumento)">
+            <i class="fa fa-refresh"></i> Update
+        </button>
+    </form>
 </div>
