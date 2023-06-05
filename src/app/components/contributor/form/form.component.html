@@ -1,1 +1,32 @@
-<p>form works!</p>
+<!-- Create a new tipo contribuyente -->
+<div class="container mt-5">
+    <h2 class="mb-3">{{ isEditMode ? 'Edit' : 'Create' }} Tipo Contribuyente</h2>
+    <form>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" [(ngModel)]="newTipoContribuyente.nombre" class="form-control">
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label" for="estado">
+                <input type="checkbox" name="estado" id="estado" [(ngModel)]="newTipoContribuyente.estado"
+                    class="form-check-input">
+                Estado
+            </label>
+        </div>
+
+        <div *ngIf="isEditMode; else createButton">
+            <button class="btn btn-success" (click)="updateTipoContribuyente()">
+                <i class="fa fa-refresh"></i> Update
+            </button>
+        </div>
+
+        <ng-template #createButton>
+            <button class="btn btn-success" (click)="createTipoContribuyente()">
+                <i class="fa fa-plus"></i> Create
+            </button>
+        </ng-template>
+
+
+
+    </form>
+</div>

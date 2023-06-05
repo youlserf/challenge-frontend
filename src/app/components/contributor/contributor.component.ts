@@ -6,41 +6,12 @@ import { TipoContribuyenteService } from 'src/app/services/contribuyente.service
   templateUrl: './contributor.component.html',
   styleUrls: ['./contributor.component.css'],
 })
-export class ContributorComponent implements OnInit {
+export class ContributorComponent {
   tipoContribuyentes: any[] = [];
   newTipoContribuyente: any = {};
   selectedTipoContribuyente: any = {};
 
   constructor(private tipoContribuyenteService: TipoContribuyenteService) {}
-
-  ngOnInit() {
-    this.getAllTipoContribuyentes();
-  }
-
-  getAllTipoContribuyentes() {
-    this.tipoContribuyenteService
-      .getAllTipoContribuyentes()
-      .subscribe((data) => {
-        this.tipoContribuyentes = data;
-      });
-  }
-
-  getTipoContribuyenteById(id: number) {
-    this.tipoContribuyenteService
-      .getTipoContribuyenteById(id)
-      .subscribe((data) => {
-        this.selectedTipoContribuyente = data;
-      });
-  }
-
-  createTipoContribuyente() {
-    this.tipoContribuyenteService
-      .createTipoContribuyente(this.newTipoContribuyente)
-      .subscribe((data) => {
-        this.tipoContribuyentes.push(data);
-        this.newTipoContribuyente = {};
-      });
-  }
 
   updateTipoContribuyente(id: number) {
     this.tipoContribuyenteService
@@ -53,13 +24,5 @@ export class ContributorComponent implements OnInit {
           this.tipoContribuyentes[index] = data;
         }
       });
-  }
-
-  deleteTipoContribuyente(id: number) {
-    this.tipoContribuyenteService.deleteTipoContribuyente(id).subscribe(() => {
-      this.tipoContribuyentes = this.tipoContribuyentes.filter(
-        (t) => t.idTipoContribuyente !== id
-      );
-    });
   }
 }

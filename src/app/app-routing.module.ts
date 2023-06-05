@@ -10,6 +10,7 @@ import { DocumentComponent } from './components/document/document.component';
 import { ContributorRouterModule } from './components/contributor/contributor-router.module';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'entidad', component: EntidadComponent },

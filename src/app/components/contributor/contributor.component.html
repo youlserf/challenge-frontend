@@ -1,60 +1,6 @@
 <h1 class="display-4 text-center mb-4">Tipo Contribuyente</h1>
-
-<!-- Display all tipo contribuyentes -->
-<div class="container">
-    <h2 class="mb-3">All Tipo Contribuyentes</h2>
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor="let tipoContribuyente of tipoContribuyentes">
-            {{ tipoContribuyente.nombre }}
-            <button class="btn btn-primary btn-sm ml-2"
-                (click)="getTipoContribuyenteById(tipoContribuyente.idTipoContribuyente)">
-                <i class="fa fa-pencil"></i> Edit
-            </button>
-            <button class="btn btn-danger btn-sm ml-2"
-                (click)="deleteTipoContribuyente(tipoContribuyente.idTipoContribuyente)">
-                <i class="fa fa-trash"></i> Delete
-            </button>
-        </li>
-    </ul>
-</div>
-
-<!-- Create a new tipo contribuyente -->
-<div class="container mt-5">
-    <h2 class="mb-3">Create Tipo Contribuyente</h2>
-    <form>
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" [(ngModel)]="newTipoContribuyente.nombre" class="form-control">
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label" for="estado">
-                <input type="checkbox" id="estado" [(ngModel)]="newTipoContribuyente.estado" class="form-check-input">
-                Estado
-            </label>
-        </div>
-        <button class="btn btn-success" (click)="createTipoContribuyente()">
-            <i class="fa fa-plus"></i> Create
-        </button>
-    </form>
-</div>
-
-
-<!-- Edit an existing tipo contribuyente -->
-<div class="container mt-5" *ngIf="selectedTipoContribuyente">
-    <h2 class="mb-3">Edit Tipo Contribuyente</h2>
-    <form>
-        <div class="form-group">
-            <label for="edit-nombre">Nombre:</label>
-            <input type="text" id="edit-nombre" [(ngModel)]="selectedTipoContribuyente.nombre" class="form-control">
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label" for="edit-estado">
-                <input type="checkbox" id="edit-estado" [(ngModel)]="selectedTipoContribuyente.estado"
-                    class="form-check-input"> Estado
-            </label>
-        </div>
-        <button class="btn btn-info" (click)="updateTipoContribuyente(selectedTipoContribuyente.idTipoContribuyente)">
-            <i class="fa fa-refresh"></i> Update
-        </button>
-    </form>
-</div>
+<nav style="display: flex; gap: 1rem;">
+    <a href="/contributor/create">Create</a>
+    <a href="/contributor">List</a>
+</nav>
+<router-outlet></router-outlet>
