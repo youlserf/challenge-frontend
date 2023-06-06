@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TipoContribuyenteService } from 'src/app/services/contribuyente/contribuyente.service';
+import { LayoutHomeComponent } from 'src/app/layouts/layout-home/layout-home.component';
 
 @Component({
   selector: 'app-contributor',

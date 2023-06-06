@@ -1,12 +1,12 @@
 <!-- Create a new tipo contribuyente -->
 <div class="container mt-5">
     <h2 class="mb-3">{{ isEditMode ? 'Edit' : 'Create' }} Tipo Contribuyente</h2>
-    <form>
-        <div class="form-group">
+    <form style="display:flex; flex-direction: column; gap: 1rem">
+        <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" id="nombre" [(ngModel)]="newTipoContribuyente.nombre" class="form-control">
         </div>
-        <div class="form-group form-check">
+        <div class="form-group form-check" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label class="form-check-label" for="estado">
                 <input type="checkbox" name="estado" id="estado" [(ngModel)]="newTipoContribuyente.estado"
                     class="form-check-input">

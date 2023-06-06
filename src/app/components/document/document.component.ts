@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TipoDocumento } from 'src/app/services/document/document.model';
-import { TipoDocumentoService } from 'src/app/services/document/documento.service';
+import { LayoutHomeComponent } from 'src/app/layouts/layout-home/layout-home.component';
 
 @Component({
   selector: 'app-document',

@@ -1,0 +1,27 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Your Brand</a>
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">Services</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="/entity">Entities</a></li>
+                <li><a class="dropdown-item" routerLink="/document">Documents</a></li>
+                <li><a class="dropdown-item" routerLink="/contributor">Contributors</a></li>
+
+            </ul>
+        </div>
+
+        <button class="btn btn-primary d-lg-none" (click)="logout()">
+            <i class="fa fa-sign-out"></i> Logout
+        </button>
+    </nav>
+
+    <div style="display: flex; min-height: 100vh; justify-content: center;">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="footer">
+        <!-- Footer content goes here -->
+    </div>
+</div>

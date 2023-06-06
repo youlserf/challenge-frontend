@@ -33,7 +33,7 @@ export class LoginComponent {
         console.log(localStorage.getItem('refreshToken'));
 
         // Redirect or perform other actions upon successful login
-        this.router.navigate(['/home']);
+        this.router.navigate(['/entity']);
       },
       (error) => {
         // Handle login error

@@ -19,6 +19,7 @@ export class ListComponent implements OnInit {
   getAllEntities() {
     this.entidadService.getAllEntities().subscribe((data) => {
       this.entities = data;
+      console.log(data);
     });
   }
 

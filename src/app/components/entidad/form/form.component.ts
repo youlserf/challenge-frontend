@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataModel } from 'src/app/services/entidad/docon.model';
 import { Entity } from 'src/app/services/entidad/entidad.model';
 import { EntidadService } from 'src/app/services/entidad/entidad.service';
 
@@ -12,6 +13,7 @@ export class FormComponent implements OnInit {
   newEntity: Entity = {} as Entity;
   isEditMode: boolean = false;
   isFormValid: boolean = false;
+  tipoDocumentoContribuyentes: DataModel = {} as DataModel;
 
   constructor(
     private entidadService: EntidadService,
@@ -26,17 +28,46 @@ export class FormComponent implements OnInit {
         this.getEntidadById(params['id']);
       }
     });
-    this.validateForm();
+
+    this.entidadService.getAllTipoDocumentoAndTipoContribuyente().subscribe(
+      (data) => {
+        this.tipoDocumentoContribuyentes = data;
+        console.log(data);
+      },
+      (error) => {
+        // Handle error
+      }
+    );
+
+    /* this.validateForm(); */
   }
 
   getEntidadById(id: number) {
+    console.log(id);
     this.entidadService.getEntityById(id).subscribe((data) => {
       this.newEntity = data;
+      console.log(data);
     });
   }
 
   createEntidad() {
-    this.entidadService.createEntity(this.newEntity).subscribe((data) => {
+    const addEntity: any = {
+      tipoDocumento: {
+        idTipoDocumento: parseInt(this.newEntity.tipoDocumento),
+      },
+      numeroDocumento: this.newEntity.numeroDocumento,
+      razonSocial: this.newEntity.razonSocial,
+      nombreComercial: this.newEntity.nombreComercial,
+      tipoContribuyente: {
+        idTipoContribuyente: parseInt(this.newEntity.tipoContribuyente),
+      },
+      direccion: this.newEntity.direccion,
+      telefono: this.newEntity.telefono,
+      estado: true,
+    };
+
+    console.log(addEntity);
+    this.entidadService.createEntity(addEntity).subscribe((data) => {
       this.newEntity = {} as Entity;
       this.router.navigate(['/entity']);
     });
@@ -49,12 +80,12 @@ export class FormComponent implements OnInit {
     });
   }
 
-  validateForm() {
+  /* validateForm() {
     this.isFormValid =
       this.newEntity.tipoDocumento &&
       this.newEntity.numeroDocumento &&
       this.newEntity.razonSocial &&
       this.newEntity.direccion &&
       this.newEntity.telefono;
-  }
+  } */
 }

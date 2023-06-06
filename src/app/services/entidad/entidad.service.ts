@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Entity } from './entidad.model'; // Import the interface
-
+import { DataModel } from './docon.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -28,9 +28,10 @@ export class EntidadService {
       `Bearer ${accessToken}`
     );
 
-    return this.http.get<Entity>(`${this.baseUrl}/${id}`, { headers });
+    return this.http.get<any>(`${this.baseUrl}/${id}`, { headers });
   }
 
+  /*
   createEntity(entity: Entity): Observable<Entity> {
     const accessToken = localStorage.getItem('accessToken');
     const headers = new HttpHeaders().set(
@@ -39,6 +40,16 @@ export class EntidadService {
     );
 
     return this.http.post<Entity>(this.baseUrl, entity, { headers });
+  }
+*/
+  createEntity(entity: any): Observable<any> {
+    const accessToken = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${accessToken}`
+    );
+
+    return this.http.post<any>(this.baseUrl, entity, { headers });
   }
 
   updateEntity(id: number, entity: Entity): Observable<Entity> {
@@ -59,5 +70,15 @@ export class EntidadService {
     );
 
     return this.http.delete<any>(`${this.baseUrl}/${id}`, { headers });
+  }
+
+  getAllTipoDocumentoAndTipoContribuyente(): Observable<DataModel> {
+    const accessToken = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${accessToken}`
+    );
+
+    return this.http.get<DataModel>(`${this.baseUrl}/docont`, { headers });
   }
 }

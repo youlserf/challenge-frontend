@@ -1,8 +1,18 @@
-<form (ngSubmit)="login()">
-    <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required>
-    <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required>
+<div style="display: flex; justify-content: center; align-items: center;  min-height: 100vh;">
+    <form (ngSubmit)="login()" class="mb-4"
+        style="max-width: 30rem; display: flex; gap: 1rem;  flex-direction: column;">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" [(ngModel)]="email" class="form-control" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" [(ngModel)]="password" class="form-control" id="password" required>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button (click)="goToSignup()" class="btn btn-link">Go to Signup</button>
+        </div>
 
-    <button type="submit">Login</button>
-    <button (click)="goToSignup()">Go to Signup</button>
-
-</form>
+    </form>
+</div>

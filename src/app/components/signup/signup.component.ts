@@ -36,7 +36,7 @@ export class SignupComponent {
         console.log(localStorage.getItem('refreshToken'));
 
         // Handle successful registration, such as showing a success message or redirecting to the login page
-        this.router.navigate(['/home']);
+        this.router.navigate(['/entity']);
       },
       (error) => {
         // Handle registration error, such as displaying an error message

@@ -2,21 +2,21 @@
 <div class="container mt-5">
     <h2 class="mb-3">{{ isEditMode ? 'Edit' : 'Create' }} Tipo Documento</h2>
 
-    <form>
-        <div class="form-group">
+    <form style="display:flex; flex-direction: column; gap: 1rem">
+        <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="codigo">Código:</label>
             <input type="text" id="codigo" name="codigo" [(ngModel)]="newTipoDocumento.codigo" class="form-control">
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" [(ngModel)]="newTipoDocumento.nombre" class="form-control">
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="descripcion">Descripción:</label>
             <input type="text" id="descripcion" name="descripcion" [(ngModel)]="newTipoDocumento.descripcion"
                 class="form-control">
         </div>
-        <div class="form-group form-check">
+        <div class="form-group form-check" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label class="form-check-label" for="estado">
                 <input type="checkbox" id="estado" name="estado" [(ngModel)]="newTipoDocumento.estado"
                     class="form-check-input">

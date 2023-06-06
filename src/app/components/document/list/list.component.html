@@ -1,10 +1,10 @@
-<!-- Display all tipo documentos -->
 <div class="container">
     <h2 class="mb-3">All Tipo Documentos</h2>
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let tipoDocumento of tipoDocumentos">
-            {{ tipoDocumento.nombre }}
-            <button class="btn btn-primary btn-sm ml-2" (click)="editTipoDocumento(tipoDocumento.idTipoDocumento)">
+        <li class="list-group-item d-flex align-items-center" *ngFor="let tipoDocumento of tipoDocumentos"
+            style="display: flex; gap: 1rem;">
+            <span>{{ tipoDocumento.nombre }}</span>
+            <button class="btn btn-primary btn-sm ml-auto" (click)="editTipoDocumento(tipoDocumento.idTipoDocumento)">
                 <i class="fa fa-pencil"></i> Edit
             </button>
             <button class="btn btn-danger btn-sm ml-2" (click)="deleteTipoDocumento(tipoDocumento.idTipoDocumento)">
@@ -12,5 +12,4 @@
             </button>
         </li>
     </ul>
-
 </div>

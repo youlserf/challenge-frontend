@@ -1,10 +1,10 @@
-<!-- Display all tipo contribuyentes -->
 <div class="container">
     <h2 class="mb-3">All Tipo Contribuyentes</h2>
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let tipoContribuyente of tipoContribuyentes">
-            {{ tipoContribuyente.nombre }}
-            <button class="btn btn-primary btn-sm ml-2"
+        <li class="list-group-item d-flex align-items-center" *ngFor="let tipoContribuyente of tipoContribuyentes"
+            style="display: flex; gap: 1rem;">
+            <span>{{ tipoContribuyente.nombre }}</span>
+            <button class="btn btn-primary btn-sm ml-auto"
                 (click)="editTipoContribuyente(tipoContribuyente.idTipoContribuyente)">
                 <i class="fa fa-pencil"></i> Edit
             </button>
