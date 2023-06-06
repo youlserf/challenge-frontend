@@ -10,30 +10,24 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { EntidadComponent } from './components/entidad/entidad.component';
-import { DocumentComponent } from './components/document/document.component';
-import { ContributorComponent } from './components/contributor/contributor.component';
-import { TipoContribuyenteService } from './services/contribuyente.service';
-import { ListComponent } from './components/contributor/list/list.component';
-import { FormComponent } from './components/contributor/form/form.component';
+import { TipoContribuyenteService } from './services/contribuyente/contribuyente.service';
+import { CommonModule } from '@angular/common';
+import { DocumentModule } from './components/document/document.module';
+import { ContributorModule } from './components/contributor/contributor.module';
+import { EntidadModule } from './components/entidad/entidad.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    SignupComponent,
-    HomeComponent,
-    EntidadComponent,
-    DocumentComponent,
-    ContributorComponent,
-    ListComponent,
-    FormComponent,
-  ],
+  declarations: [AppComponent, LoginComponent, SignupComponent, HomeComponent],
   imports: [
+    CommonModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    DocumentModule,
+    ContributorModule,
+    EntidadModule,
   ],
   providers: [TipoContribuyenteService],
   bootstrap: [AppComponent],

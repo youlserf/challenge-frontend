@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TipoContribuyenteService } from 'src/app/services/contribuyente.service';
+import { TipoContribuyente } from 'src/app/services/contribuyente/contribuyente.model';
+import { TipoContribuyenteService } from 'src/app/services/contribuyente/contribuyente.service';
 
 @Component({
   selector: 'app-form',
@@ -8,7 +9,7 @@ import { TipoContribuyenteService } from 'src/app/services/contribuyente.service
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  newTipoContribuyente: any = {};
+  newTipoContribuyente: TipoContribuyente = {} as TipoContribuyente;
   isEditMode: boolean = false;
 
   constructor(
@@ -38,7 +39,7 @@ export class FormComponent implements OnInit {
     this.tipoContribuyenteService
       .createTipoContribuyente(this.newTipoContribuyente)
       .subscribe((data) => {
-        this.newTipoContribuyente = {};
+        this.newTipoContribuyente = {} as TipoContribuyente;
         this.router.navigate(['/contributor']);
       });
   }

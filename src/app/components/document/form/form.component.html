@@ -1,0 +1,38 @@
+<!-- Create a new tipo documento -->
+<div class="container mt-5">
+    <h2 class="mb-3">{{ isEditMode ? 'Edit' : 'Create' }} Tipo Documento</h2>
+
+    <form>
+        <div class="form-group">
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" [(ngModel)]="newTipoDocumento.codigo" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="newTipoDocumento.nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" [(ngModel)]="newTipoDocumento.descripcion"
+                class="form-control">
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label" for="estado">
+                <input type="checkbox" id="estado" name="estado" [(ngModel)]="newTipoDocumento.estado"
+                    class="form-check-input">
+                Estado
+            </label>
+        </div>
+        <div *ngIf="isEditMode; else createButton">
+            <button class="btn btn-success" (click)="updateTipoDocumento()">
+                <i class="fa fa-refresh"></i> Update
+            </button>
+        </div>
+
+        <ng-template #createButton>
+            <button class="btn btn-success" (click)="createTipoDocumento()">
+                <i class="fa fa-plus"></i> Create
+            </button>
+        </ng-template>
+    </form>
+</div>

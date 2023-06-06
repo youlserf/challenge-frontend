@@ -1,0 +1,17 @@
+<!-- Entity List -->
+<div class="container">
+    <ul>
+        <li *ngFor="let entity of entities">
+            <span>{{ entity.idEntidad }}</span>
+            <span>{{ entity.tipoDocumento }}</span>
+            <span>{{ entity.numeroDocumento }}</span>
+            <span>{{ entity.razonSocial }}</span>
+            <span>{{ entity.nombreComercial }}</span>
+            <span>{{ entity.tipoContribuyente }}</span>
+            <span>{{ entity.direccion }}</span>
+            <span>{{ entity.telefono }}</span>
+            <button (click)="editEntity(entity.idEntidad)">Edit</button>
+            <button (click)="deleteEntity(entity.idEntidad)">Delete</button>
+        </li>
+    </ul>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TipoContribuyenteService } from 'src/app/services/contribuyente.service';
+import { TipoContribuyente } from 'src/app/services/contribuyente/contribuyente.model';
+import { TipoContribuyenteService } from 'src/app/services/contribuyente/contribuyente.service';
 
 @Component({
   selector: 'app-list',
@@ -8,9 +9,8 @@ import { TipoContribuyenteService } from 'src/app/services/contribuyente.service
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  tipoContribuyentes: any[] = [];
-  newTipoContribuyente: any = {};
-  selectedTipoContribuyente: any = {};
+  tipoContribuyentes: TipoContribuyente[] = [];
+  newTipoContribuyente: TipoContribuyente = {} as TipoContribuyente;
 
   constructor(
     private tipoContribuyenteService: TipoContribuyenteService,

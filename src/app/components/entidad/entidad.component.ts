@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EntidadService } from 'src/app/services/entidad.service';
+import { EntidadService } from 'src/app/services/entidad/entidad.service';
 
 @Component({
   selector: 'app-entidad',

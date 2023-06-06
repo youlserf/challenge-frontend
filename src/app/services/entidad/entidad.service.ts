@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Entity } from './entidad.model'; // Import the interface
 
 @Injectable({
   providedIn: 'root',
@@ -10,44 +11,44 @@ export class EntidadService {
 
   constructor(private http: HttpClient) {}
 
-  getAllEntities(): Observable<any[]> {
+  getAllEntities(): Observable<Entity[]> {
     const accessToken = localStorage.getItem('accessToken');
     const headers = new HttpHeaders().set(
       'Authorization',
       `Bearer ${accessToken}`
     );
 
-    return this.http.get<any[]>(this.baseUrl, { headers });
+    return this.http.get<Entity[]>(this.baseUrl, { headers });
   }
 
-  getEntityById(id: number): Observable<any> {
+  getEntityById(id: number): Observable<Entity> {
     const accessToken = localStorage.getItem('accessToken');
     const headers = new HttpHeaders().set(
       'Authorization',
       `Bearer ${accessToken}`
     );
 
-    return this.http.get<any>(`${this.baseUrl}/${id}`, { headers });
+    return this.http.get<Entity>(`${this.baseUrl}/${id}`, { headers });
   }
 
-  createEntity(entity: any): Observable<any> {
+  createEntity(entity: Entity): Observable<Entity> {
     const accessToken = localStorage.getItem('accessToken');
     const headers = new HttpHeaders().set(
       'Authorization',
       `Bearer ${accessToken}`
     );
 
-    return this.http.post<any>(this.baseUrl, entity, { headers });
+    return this.http.post<Entity>(this.baseUrl, entity, { headers });
   }
 
-  updateEntity(id: number, entity: any): Observable<any> {
+  updateEntity(id: number, entity: Entity): Observable<Entity> {
     const accessToken = localStorage.getItem('accessToken');
     const headers = new HttpHeaders().set(
       'Authorization',
       `Bearer ${accessToken}`
     );
 
-    return this.http.put<any>(`${this.baseUrl}/${id}`, entity, { headers });
+    return this.http.put<Entity>(`${this.baseUrl}/${id}`, entity, { headers });
   }
 
   deleteEntity(id: number): Observable<any> {

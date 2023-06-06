@@ -8,13 +8,13 @@ import { EntidadComponent } from './components/entidad/entidad.component';
 import { ContributorComponent } from './components/contributor/contributor.component';
 import { DocumentComponent } from './components/document/document.component';
 import { ContributorRouterModule } from './components/contributor/contributor-router.module';
+import { DocumentRouterModule } from './components/document/document-router.module';
+import { EntidadRouterModule } from './components/entidad/entidad-router.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'entidad', component: EntidadComponent },
-  { path: 'documento', component: DocumentComponent },
 ];
 
 @NgModule({
@@ -22,6 +22,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HomeRouterModule,
     ContributorRouterModule,
+    DocumentRouterModule,
+    EntidadRouterModule,
   ],
   exports: [RouterModule],
 })
