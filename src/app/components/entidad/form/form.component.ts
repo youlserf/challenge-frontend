@@ -43,7 +43,6 @@ export class FormComponent implements OnInit {
   }
 
   getEntidadById(id: number) {
-    console.log(id);
     this.entidadService.getEntityById(id).subscribe((data) => {
       this.newEntity = data;
       console.log(data);

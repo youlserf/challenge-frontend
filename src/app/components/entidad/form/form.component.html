@@ -17,19 +17,21 @@
         <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="numeroDocumento">Número Documento:</label>
             <input type="text" id="numeroDocumento" name="numeroDocumento" class="form-control"
-                [(ngModel)]="newEntity.numeroDocumento" pattern="[0-9]*" required>
-            <small class="text-danger" *ngIf="!newEntity.numeroDocumento">Please enter a number.</small>
+                [(ngModel)]="newEntity.numeroDocumento" pattern="[0-9]*" required minlength="1" maxlength="50">
+            <small class="text-danger" *ngIf="!newEntity.numeroDocumento || newEntity.numeroDocumento.length < 1">Please
+                enter a number.</small>
         </div>
         <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="razonSocial">Razón Social:</label>
             <input type="text" id="razonSocial" name="razonSocial" class="form-control"
-                [(ngModel)]="newEntity.razonSocial" required>
-            <small class="text-danger" *ngIf="!newEntity.razonSocial">Please enter a reason.</small>
+                [(ngModel)]="newEntity.razonSocial" required minlength="1" maxlength="50">
+            <small class="text-danger" *ngIf="!newEntity.razonSocial || newEntity.razonSocial.length < 1">Please enter a
+                reason.</small>
         </div>
         <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="nombreComercial">Nombre Comercial:</label>
             <input type="text" id="nombreComercial" name="nombreComercial" class="form-control"
-                [(ngModel)]="newEntity.nombreComercial">
+                [(ngModel)]="newEntity.nombreComercial" maxlength="50">
         </div>
         <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="tipoContribuyente">Tipo Contribuyente:</label>
@@ -44,14 +46,16 @@
         <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="direccion">Dirección:</label>
             <input type="text" id="direccion" name="direccion" class="form-control" [(ngModel)]="newEntity.direccion"
-                required>
-            <small class="text-danger" *ngIf="!newEntity.direccion">Please enter an address.</small>
+                required minlength="1" maxlength="50">
+            <small class="text-danger" *ngIf="!newEntity.direccion || newEntity.direccion.length < 1">Please enter an
+                address.</small>
         </div>
         <div class="form-group" style="display:flex; flex-direction: column; gap: 0.5rem">
             <label for="telefono">Teléfono:</label>
             <input type="text" id="telefono" name="telefono" class="form-control" [(ngModel)]="newEntity.telefono"
-                pattern="[0-9]*">
-            <small class="text-danger" *ngIf="!newEntity.telefono">Please enter a number.</small>
+                pattern="[0-9]*" maxlength="50">
+            <small class="text-danger" *ngIf="!newEntity.telefono || newEntity.telefono.length < 1">Please enter a
+                number.</small>
         </div>
         <div *ngIf="isEditMode; else createButton">
             <button class="btn btn-success" (click)="updateEntidad()">
