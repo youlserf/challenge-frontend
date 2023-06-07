@@ -2,12 +2,11 @@
     <ul class="list-group">
         <li class="list-group-item d-flex align-items-center" *ngFor="let entity of entities"
             style="display: flex; gap: 1rem;">
-            <span class="mr-2">{{ entity.idEntidad }}</span>
-            <span class="mr-2">{{ entity.tipoDocumento }}</span>
+            <span class="mr-2">{{ entity.tipoDocumento.nombre }}</span>
             <span class="mr-2">{{ entity.numeroDocumento }}</span>
             <span class="mr-2">{{ entity.razonSocial }}</span>
             <span class="mr-2">{{ entity.nombreComercial }}</span>
-            <span class="mr-2">{{ entity.tipoContribuyente }}</span>
+            <span class="mr-2">{{ entity.tipoContribuyente.nombre }}</span>
             <span class="mr-2">{{ entity.direccion }}</span>
             <span class="mr-2">{{ entity.telefono }}</span>
             <button class="btn btn-primary btn-sm ml-auto" (click)="editEntity(entity.idEntidad)">Edit</button>
