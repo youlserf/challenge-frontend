@@ -52,7 +52,7 @@ export class EntidadService {
     return this.http.post<any>(this.baseUrl, entity, { headers });
   }
 
-  updateEntity(id: number, entity: Entity): Observable<Entity> {
+  updateEntity(id: number, entity: any): Observable<any> {
     const accessToken = localStorage.getItem('accessToken');
     const headers = new HttpHeaders().set(
       'Authorization',

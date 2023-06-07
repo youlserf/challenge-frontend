@@ -75,7 +75,23 @@ export class FormComponent implements OnInit {
 
   updateEntidad() {
     const id = this.newEntity.idEntidad;
-    this.entidadService.updateEntity(id, this.newEntity).subscribe((data) => {
+    const updateEntity: any = {
+      tipoDocumento: {
+        idTipoDocumento: parseInt(this.newEntity.tipoDocumento),
+      },
+      numeroDocumento: this.newEntity.numeroDocumento,
+      razonSocial: this.newEntity.razonSocial,
+      nombreComercial: this.newEntity.nombreComercial,
+      tipoContribuyente: {
+        idTipoContribuyente: parseInt(this.newEntity.tipoContribuyente),
+      },
+      direccion: this.newEntity.direccion,
+      telefono: this.newEntity.telefono,
+      estado: true,
+    };
+    console.log(this.newEntity);
+
+    this.entidadService.updateEntity(id, updateEntity).subscribe((data) => {
       this.router.navigate(['/entity']);
     });
   }
